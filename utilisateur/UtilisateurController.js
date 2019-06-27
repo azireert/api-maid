@@ -17,4 +17,15 @@ router.get('/', function (req, res) {
     });
 });
 
+router.post('/', function (req, res) {
+    Utilisateur.createUtilisateur(req.body,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
 module.exports = router;
