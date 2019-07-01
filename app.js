@@ -13,7 +13,8 @@ app.use('/menage', MenageController);
 var VisiteController = require('./visite/VisiteController');
 app.use('/visite', VisiteController);
 
-
+var AuthController = require('./auth/AuthController');
+app.use('/auth', AuthController);
 
 
 

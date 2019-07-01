@@ -30,4 +30,52 @@ router.get('/utilisateur/:id', function (req, res) {
     });
 });
 
+router.get('/menage/:id', function (req, res) {
+    Visite.getMenageVisite(req.params.id, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
+
+router.put('/confirm', function (req, res) {
+    Visite.confirmVisite(req.body, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(req.body);
+        }
+    });
+});
+
+router.put('/finish', function (req, res) {
+    Visite.finishVisite(req.body, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(req.body);
+        }
+    });
+});
+
+router.put('/cancel', function (req, res) {
+    Visite.cancelVisite(req.body, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(req.body);
+        }
+    });
+});
+
 module.exports = router;
