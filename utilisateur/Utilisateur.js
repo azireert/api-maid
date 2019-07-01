@@ -11,6 +11,10 @@ var Utilisateur = {
     getUtilisateurMenage: function(id, callback) // // retourne tous les utilisateurs concernés par une femme
     {
         return db.query('SELECT utilisateur.id,utilisateur.nom,utilisateur.prenom,utilisateur.tel,utilisateur.email,utilisateur.sexe,utilisateur.ville,utilisateur.rue,utilisateur.cp,visite.id AS idVisite from maid,visite,utilisateur WHERE maid.id = visite.idMaid AND visite.idUtilisateur = utilisateur.id AND maid.id = ?',[id], callback);
+    },
+    getUtilisateurMenageCommentaire: function(id, callback) // // retourne tous les utilisateurs concernés par une femme
+    {
+        return db.query('SELECT utilisateur.id,utilisateur.nom,utilisateur.prenom,utilisateur.tel,utilisateur.email,utilisateur.sexe,utilisateur.ville,utilisateur.rue,utilisateur.cp,commentaire.id AS idCommentaire from maid,commentaire,utilisateur WHERE maid.id = commentaire.idMaid AND commentaire.idUtilisateur = utilisateur.id AND maid.id = ?',[id], callback);
     }
 
 };

@@ -16,6 +16,9 @@ app.use('/visite', VisiteController);
 var AuthController = require('./auth/AuthController');
 app.use('/auth', AuthController);
 
+var CommentaireController = require('./commentaire/CommentaireController');
+app.use('/commentaire', CommentaireController);
+
 
 
 module.exports = app;

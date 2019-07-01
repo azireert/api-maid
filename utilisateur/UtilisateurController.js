@@ -29,6 +29,18 @@ router.get('/menage/:id', function (req, res) {
     });
 });
 
+router.get('/menage/commentaire/:id', function (req, res) {
+    Utilisateur.getUtilisateurMenageCommentaire(req.params.id, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
+
 router.post('/', function (req, res) {
     Utilisateur.createUtilisateur(req.body,function(err,count){
         if(err)
