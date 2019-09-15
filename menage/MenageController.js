@@ -29,8 +29,44 @@ router.post('/', function (req, res) {
     });
 });
 
+router.put('/note', function (req, res) {
+    Menage.updateNote(req.body,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
+router.put('/dispo', function (req, res) {
+    Menage.updateDispo(req.body,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
 router.get('/visite/:id', function (req, res) {
     Menage.getMenageVisite(req.params.id, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
+
+router.get('/connect/:id', function (req, res) {
+    Menage.getMenage(req.params.id, function(err,rows){
         if(err) {
             res.status(400).json(err);
         }

@@ -66,6 +66,18 @@ router.put('/finish', function (req, res) {
     });
 });
 
+router.put('/date', function (req, res) {
+    Visite.updateDateDepart(req.body, function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(req.body);
+        }
+    });
+});
+
 router.put('/cancel', function (req, res) {
     Visite.cancelVisite(req.body, function(err,rows){
         if(err) {
